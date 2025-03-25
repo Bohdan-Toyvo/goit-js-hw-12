@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-const API_KEY = '49479745-ecb2a9650ccad432b929afb0a';
+const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = 'https://pixabay.com/api/';
 const PER_PAGE = 15;
 
