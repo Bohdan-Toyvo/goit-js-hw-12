@@ -2,6 +2,8 @@
 
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 let lightbox = null;
 
@@ -48,4 +50,32 @@ export function renderGallery(gallery, images) {
   } else {
     lightbox.refresh();
   }
+}
+
+// export function scrollPage(gallery) {
+//   if (gallery.firstElementChild) {
+//     const galleryHeight =
+//       gallery.firstElementChild.getBoundingClientRect().height;
+//     window.scrollBy({ top: galleryHeight * 2, behavior: 'smooth' });
+
+//     iziToast.info({
+//       title: 'End of Results',
+//       message: "We're sorry, but you've reached the end of search results.",
+//       position: 'bottom',
+//     });
+//   }
+// }
+
+export async function scrollPage(gallery) {
+  return new Promise(resolve => {
+    if (gallery.firstElementChild) {
+      const galleryHeight =
+        gallery.firstElementChild.getBoundingClientRect().height;
+
+      if (galleryHeight > 0) {
+        window.scrollBy({ top: galleryHeight * 2, behavior: 'smooth' });
+      }
+    }
+    resolve();
+  });
 }
