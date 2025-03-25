@@ -72,9 +72,9 @@ export async function scrollPage(gallery) {
       const galleryHeight =
         gallery.firstElementChild.getBoundingClientRect().height;
 
-      if (galleryHeight > 0) {
+      // if (galleryHeight > 0) {
         window.scrollBy({ top: galleryHeight * 2, behavior: 'smooth' });
-      }
+      // }
     }
     resolve();
   });

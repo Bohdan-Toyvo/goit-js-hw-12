@@ -2,7 +2,7 @@
 
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
-import { searchImages } from './js/pixabay-api.js';
+import { searchImages, PER_PAGE } from './js/pixabay-api.js';
 import {
   showLoader,
   clearGallery,
@@ -80,7 +80,7 @@ async function loadMoreImages() {
     await renderGallery(gallery, data.hits);
     await scrollPage(gallery);
 
-    if (page * 15 >= totalHits) {
+    if (page * PER_PAGE >= totalHits) {
       iziToast.info({
         title: 'End of Results',
         message: "We're sorry, but you've reached the end of search results.",
